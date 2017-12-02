@@ -13,20 +13,20 @@ class App extends Component {
     this.setState(prevState => ({
       count: prevState.count + 1
     }));
-  }
+  };
 
   decrement = () => {
     this.setState(prevState => ({
       count: Math.max(prevState.count - 1, 0)
     }));
-  }
+  };
 
   render() {
     return (
       <div>
-         <h1>Count: {this.state.count}</h1>
-         <button onClick={this.increment}>Add 1</button>
-         <button onClick={this.decrement}>Subtract 1</button>
+        <h1>Count: {this.state.count}</h1>
+        <button onClick={this.increment}>Add 1</button>
+        <button onClick={this.decrement}>Subtract 1</button>
       </div>
     );
   }
