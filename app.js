@@ -11,6 +11,7 @@ app.set("views", path.join(__dirname, "dist"));
 
 app.use(indexRoute);
 
-app.listen(3000, () => {
-  console.log("Server listening on 3000");
+const server = app.listen(process.env.PORT || 3000, () => {
+  const port = server.address().port;
+  console.log(`Server listening on ${port}`);
 });
