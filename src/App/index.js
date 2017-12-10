@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import getRandomSolve from "rubiks-cross-trainer";
 import createEmptyArray from "create-empty-array";
 
@@ -11,7 +12,7 @@ class App extends Component {
 
     this.state = {
       difficulty: this.initialDifficulty,
-      randomSolve: getRandomSolve(this.initialDifficulty)
+      randomSolve: props.initialScramble || getRandomSolve(this.initialDifficulty)
     };
   }
 
@@ -67,5 +68,9 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  defaultScramble: PropTypes.string
+};
 
 export default App;
