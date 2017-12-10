@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+    }
+  }
+>
+  <h1
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    SOME_RANDOM_SCRAMBLE_0
+  </h1>
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "marginBottom": "1rem",
+        }
+      }
+    >
+      <span>
+        Number of moves to generate cross:
+      </span>
+      <select
+        onChange={[Function]}
+        value={1}
+      >
+        <option
+          key="0"
+          value={1}
+        >
+          1
+        </option>
+        <option
+          key="1"
+          value={2}
+        >
+          2
+        </option>
+        <option
+          key="2"
+          value={3}
+        >
+          3
+        </option>
+        <option
+          key="3"
+          value={4}
+        >
+          4
+        </option>
+        <option
+          key="4"
+          value={5}
+        >
+          5
+        </option>
+        <option
+          key="5"
+          value={6}
+        >
+          6
+        </option>
+        <option
+          key="6"
+          value={7}
+        >
+          7
+        </option>
+        <option
+          key="7"
+          value={8}
+        >
+          8
+        </option>
+      </select>
+    </div>
+    <button
+      onClick={[Function]}
+    >
+      Get random solve
+    </button>
+  </div>
+</div>
+`;
+
+exports[`should use initial scramble if provided 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+    }
+  }
+>
+  <h1
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    R2 U
+  </h1>
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "marginBottom": "1rem",
+        }
+      }
+    >
+      <span>
+        Number of moves to generate cross:
+      </span>
+      <select
+        onChange={[Function]}
+        value={1}
+      >
+        <option
+          key="0"
+          value={1}
+        >
+          1
+        </option>
+        <option
+          key="1"
+          value={2}
+        >
+          2
+        </option>
+        <option
+          key="2"
+          value={3}
+        >
+          3
+        </option>
+        <option
+          key="3"
+          value={4}
+        >
+          4
+        </option>
+        <option
+          key="4"
+          value={5}
+        >
+          5
+        </option>
+        <option
+          key="5"
+          value={6}
+        >
+          6
+        </option>
+        <option
+          key="6"
+          value={7}
+        >
+          7
+        </option>
+        <option
+          key="7"
+          value={8}
+        >
+          8
+        </option>
+      </select>
+    </div>
+    <button
+      onClick={[Function]}
+    >
+      Get random solve
+    </button>
+  </div>
+</div>
+`;

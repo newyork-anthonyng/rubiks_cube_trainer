@@ -7,4 +7,7 @@ if (window.__INITIAL_SCRAMBLE__) {
   initialScramble = window.__INITIAL_SCRAMBLE__;
 }
 
-hydrate(<App initialScramble={initialScramble} />, document.getElementById("app"));
+hydrate(
+  <App initialScramble={initialScramble} />,
+  document.getElementById("app")
+);
