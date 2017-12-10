@@ -1,5 +1,10 @@
 import React from "react";
-import { render } from "react-dom";
+import { hydrate } from "react-dom";
 import App from "./App";
 
-render(<App />, document.getElementById("app"));
+let initialScramble;
+if (window.__INITIAL_SCRAMBLE__) {
+  initialScramble = window.__INITIAL_SCRAMBLE__;
+}
+
+hydrate(<App initialScramble={initialScramble} />, document.getElementById("app"));

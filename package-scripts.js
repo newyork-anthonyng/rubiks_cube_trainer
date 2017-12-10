@@ -8,7 +8,7 @@ module.exports = {
     },
 
     build: {
-      default: "webpack"
+      default: "BABEL_ENV=production webpack"
     },
 
     lint: "eslint src/",
