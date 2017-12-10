@@ -12,7 +12,8 @@ class App extends Component {
 
     this.state = {
       difficulty: this.initialDifficulty,
-      randomSolve: props.initialScramble || getRandomSolve(this.initialDifficulty)
+      randomSolve:
+        props.initialScramble || getRandomSolve(this.initialDifficulty)
     };
   }
 
@@ -20,13 +21,13 @@ class App extends Component {
     this.setState(prevState => ({
       randomSolve: getRandomSolve(prevState.difficulty)
     }));
-  }
+  };
 
   handleSelectChange = e => {
     this.setState({
       difficulty: e.target.value
     });
-  }
+  };
 
   render() {
     const containerStyle = {
@@ -56,9 +57,14 @@ class App extends Component {
         <div style={formStyle}>
           <div style={selectStyle}>
             <span>Number of moves to generate cross:</span>
-            <select value={this.state.difficulty} onChange={this.handleSelectChange}>
+            <select
+              value={this.state.difficulty}
+              onChange={this.handleSelectChange}
+            >
               {this.optionsArray.map((_, index) => (
-                <option key={index} value={index + 1}>{index + 1}</option>
+                <option key={index} value={index + 1}>
+                  {index + 1}
+                </option>
               ))}
             </select>
           </div>
@@ -70,7 +76,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  defaultScramble: PropTypes.string
+  initialScramble: PropTypes.string
 };
 
 export default App;

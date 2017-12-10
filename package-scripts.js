@@ -21,6 +21,14 @@ module.exports = {
       cover: "jest --coverage",
 
       watch: "jest --watch"
+    },
+
+    validate: {
+      default: "npm start test.cover && npm start lint && npm start build"
+    },
+
+    afterSuccess: {
+      default: "codecov"
     }
   }
 };

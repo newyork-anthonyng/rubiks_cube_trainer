@@ -1,6 +1,11 @@
 module.exports = {
+  setupFiles: [
+    "<rootDir>/test/shim.js",
+    "<rootDir>/test/setup.js"
+  ],
   collectCoverageFrom: [
-    "**/*.js"
+    "src/**/*.js",
+    "!src/index.js"
   ],
 
   coverageThreshold: {
