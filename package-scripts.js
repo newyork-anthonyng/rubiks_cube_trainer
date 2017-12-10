@@ -13,6 +13,14 @@ module.exports = {
 
     lint: "eslint src/",
 
-    pretty: "prettier --write src/**.js"
+    pretty: "prettier --write src/**.js",
+
+    test: {
+      default: "jest",
+
+      cover: "jest --coverage",
+
+      watch: "jest --watch"
+    }
   }
 };

@@ -1,32 +1,68 @@
 import React, { Component } from "react";
+import getRandomSolve from "rubiks-cross-trainer";
+import createEmptyArray from "create-empty-array";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
+    this.optionsArray = createEmptyArray(8);
+    this.initialDifficulty = 1;
+
     this.state = {
-      count: 0
+      difficulty: this.initialDifficulty,
+      randomSolve: getRandomSolve(this.initialDifficulty)
     };
   }
 
-  increment = () => {
+  getRandomSolve = () => {
     this.setState(prevState => ({
-      count: prevState.count + 1
+      randomSolve: getRandomSolve(prevState.difficulty)
     }));
-  };
+  }
 
-  decrement = () => {
-    this.setState(prevState => ({
-      count: Math.max(prevState.count - 1, 0)
-    }));
-  };
+  handleSelectChange = e => {
+    this.setState({
+      difficulty: e.target.value
+    });
+  }
 
   render() {
+    const containerStyle = {
+      display: "flex",
+      flexDirection: "column"
+    };
+
+    const headerStyle = {
+      textAlign: "center"
+    };
+
+    const formStyle = {
+      alignItems: "center",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center"
+    };
+
+    const selectStyle = {
+      marginBottom: "1rem"
+    };
+
     return (
-      <div>
-        <h1>Count: {this.state.count}</h1>
-        <button onClick={this.increment}>Add 1</button>
-        <button onClick={this.decrement}>Subtract 1</button>
+      <div style={containerStyle}>
+        <h1 style={headerStyle}>{this.state.randomSolve}</h1>
+
+        <div style={formStyle}>
+          <div style={selectStyle}>
+            <span>Number of moves to generate cross:</span>
+            <select value={this.state.difficulty} onChange={this.handleSelectChange}>
+              {this.optionsArray.map((_, index) => (
+                <option key={index} value={index + 1}>{index + 1}</option>
+              ))}
+            </select>
+          </div>
+          <button onClick={this.getRandomSolve}>Get random solve</button>
+        </div>
       </div>
     );
   }
