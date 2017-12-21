@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should not explode when history is undefined 1`] = `
+<React.Fragment>
+  <h2>
+    Scramble History
+  </h2>
+  <p>
+    No scramble history available
+  </p>
+</React.Fragment>
+`;
+
+exports[`should render correctly if history is an empty list 1`] = `
+<React.Fragment>
+  <h2>
+    Scramble History
+  </h2>
+  <p>
+    No scramble history available
+  </p>
+</React.Fragment>
+`;
+
+exports[`should render correctly when history contains information 1`] = `
+<React.Fragment>
+  <h2>
+    Scramble History
+  </h2>
+  <ul>
+    <li
+      key="LOL"
+    >
+      <span>
+        4
+        : 
+      </span>
+      <span>
+        LOL
+      </span>
+    </li>
+  </ul>
+</React.Fragment>
+`;

@@ -6,6 +6,7 @@ import getRandomSolve from "rubiks-cross-trainer";
 
 import React from "react";
 import App from "./";
+import ScrambleHistory from "../ScrambleHistory";
 import { shallow } from "enzyme";
 import toJSON from "enzyme-to-json";
 
@@ -28,6 +29,16 @@ it("should get new scramble when clicking on button", () => {
 
   expect(getRandomSolve).toHaveBeenCalledTimes(1);
   expect(getRandomSolve.mock.calls[0][0]).toEqual(1);
+});
+
+it("should update scramble history when clicking on button", () => {
+  const wrapper = shallow(<App />);
+  getRandomSolve.mockClear();
+
+  const buttonEl = wrapper.find("button");
+  buttonEl.simulate("click");
+
+  expect(wrapper.find(ScrambleHistory).props()).toMatchSnapshot();
 });
 
 it("should use new count value when changing select field", () => {
