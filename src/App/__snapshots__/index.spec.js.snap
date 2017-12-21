@@ -98,7 +98,21 @@ exports[`should render correctly 1`] = `
       Get random solve
     </button>
   </div>
+  <ScrambleHistory
+    history={Array []}
+  />
 </div>
+`;
+
+exports[`should update scramble history when clicking on button 1`] = `
+Object {
+  "history": Array [
+    Object {
+      "difficulty": 1,
+      "scramble": "SOME_RANDOM_SCRAMBLE_0",
+    },
+  ],
+}
 `;
 
 exports[`should use initial scramble if provided 1`] = `
@@ -199,5 +213,8 @@ exports[`should use initial scramble if provided 1`] = `
       Get random solve
     </button>
   </div>
+  <ScrambleHistory
+    history={Array []}
+  />
 </div>
 `;

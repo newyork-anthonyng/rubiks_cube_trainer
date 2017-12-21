@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+
+import ScrambleHistory from "../ScrambleHistory";
+
 import getRandomSolve from "rubiks-cross-trainer";
 import createEmptyArray from "create-empty-array";
 
@@ -12,14 +15,20 @@ class App extends Component {
 
     this.state = {
       difficulty: this.initialDifficulty,
-      randomSolve:
-        props.initialScramble || getRandomSolve(this.initialDifficulty)
+      scramble: props.initialScramble || getRandomSolve(this.initialDifficulty),
+      scrambleHistory: []
     };
   }
 
   getRandomSolve = () => {
     this.setState(prevState => ({
-      randomSolve: getRandomSolve(prevState.difficulty)
+      scramble: getRandomSolve(prevState.difficulty),
+      scrambleHistory: [
+        {
+          difficulty: prevState.difficulty,
+          scramble: prevState.scramble
+        }
+      ].concat(prevState.scrambleHistory)
     }));
   };
 
@@ -52,7 +61,7 @@ class App extends Component {
 
     return (
       <div style={containerStyle}>
-        <h1 style={headerStyle}>{this.state.randomSolve}</h1>
+        <h1 style={headerStyle}>{this.state.scramble}</h1>
 
         <div style={formStyle}>
           <div style={selectStyle}>
@@ -70,6 +79,8 @@ class App extends Component {
           </div>
           <button onClick={this.getRandomSolve}>Get random solve</button>
         </div>
+
+        <ScrambleHistory history={this.state.scrambleHistory} />
       </div>
     );
   }
