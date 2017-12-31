@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<h1
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }
+>
+  R U R'
+</h1>
+`;

@@ -1,5 +1,6 @@
 import React from "react";
 import { hydrate } from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
 let initialScramble;
@@ -8,6 +9,8 @@ if (window.__INITIAL_SCRAMBLE__) {
 }
 
 hydrate(
-  <App initialScramble={initialScramble} />,
+  <BrowserRouter>
+    <App initialScramble={initialScramble} />
+  </BrowserRouter>,
   document.getElementById("app")
 );
