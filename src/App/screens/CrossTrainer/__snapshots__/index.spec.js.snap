@@ -9,15 +9,9 @@ exports[`should render correctly 1`] = `
     }
   }
 >
-  <h1
-    style={
-      Object {
-        "textAlign": "center",
-      }
-    }
-  >
-    SOME_RANDOM_SCRAMBLE_0
-  </h1>
+  <ScrambleDisplay
+    text="SOME_RANDOM_SCRAMBLE_0"
+  />
   <div
     style={
       Object {
@@ -124,15 +118,9 @@ exports[`should use initial scramble if provided 1`] = `
     }
   }
 >
-  <h1
-    style={
-      Object {
-        "textAlign": "center",
-      }
-    }
-  >
-    R2 U
-  </h1>
+  <ScrambleDisplay
+    text="R2 U"
+  />
   <div
     style={
       Object {

@@ -56,6 +56,19 @@ exports[`should render correctly 1`] = `
                 </a>
               </Link>
             </li>
+            <li>
+              <Link
+                replace={false}
+                to="/scramble"
+              >
+                <a
+                  href="/scramble"
+                  onClick={[Function]}
+                >
+                  Scramble
+                </a>
+              </Link>
+            </li>
           </ul>
         </nav>
         <hr />
@@ -107,6 +120,10 @@ exports[`should render correctly 1`] = `
         </Route>
         <Route
           path="/cross-trainer"
+          render={[Function]}
+        />
+        <Route
+          path="/scramble"
           render={[Function]}
         />
       </div>

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<div>
+  <ScrambleDisplay
+    text="U D2 L R"
+  />
+  <button
+    onClick={[Function]}
+  >
+    Next Scramble
+  </button>
+</div>
+`;
+
+exports[`should use initial scramble if provided 1`] = `
+<div>
+  <ScrambleDisplay
+    text="U R"
+  />
+  <button
+    onClick={[Function]}
+  >
+    Next Scramble
+  </button>
+</div>
+`;

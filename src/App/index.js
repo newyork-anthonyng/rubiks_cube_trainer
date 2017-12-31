@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Route, Link } from "react-router-dom";
 import Home from "./screens/Home";
 import CrossTrainer from "./screens/CrossTrainer";
+import Scramble from "./screens/Scramble";
 
 const App = ({ initialScramble }) => (
   <div>
@@ -13,6 +14,9 @@ const App = ({ initialScramble }) => (
         </li>
         <li>
           <Link to="/cross-trainer">Cross Trainer</Link>
+        </li>
+        <li>
+          <Link to="/scramble">Scramble</Link>
         </li>
       </ul>
     </nav>
@@ -25,6 +29,14 @@ const App = ({ initialScramble }) => (
       render={
         /* istanbul ignore next */ () => (
           <CrossTrainer initialScramble={initialScramble} />
+        )
+      }
+    />
+    <Route
+      path="/scramble"
+      render={
+        /* istanbul ignore next */ () => (
+          <Scramble initialScramble={initialScramble} />
         )
       }
     />

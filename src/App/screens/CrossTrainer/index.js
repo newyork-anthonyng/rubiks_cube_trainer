@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+import ScrambleDisplay from "../../shared/ScrambleDisplay";
 import ScrambleHistory from "./components/ScrambleHistory";
-
 import getRandomSolve from "rubiks-cross-trainer";
 import createEmptyArray from "create-empty-array";
 
@@ -44,10 +44,6 @@ class CrossTrainer extends Component {
       flexDirection: "column"
     };
 
-    const headerStyle = {
-      textAlign: "center"
-    };
-
     const formStyle = {
       alignItems: "center",
       display: "flex",
@@ -61,7 +57,7 @@ class CrossTrainer extends Component {
 
     return (
       <div style={containerStyle}>
-        <h1 style={headerStyle}>{this.state.scramble}</h1>
+        <ScrambleDisplay text={this.state.scramble} />
 
         <div style={formStyle}>
           <div style={selectStyle}>
