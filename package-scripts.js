@@ -3,8 +3,12 @@ module.exports = {
     default: "node app.js",
 
     dev: {
-      script: "webpack-dev-server --port 8000 --config webpack.dev.config.js --progress --inline --hot",
-      description: "Run app with hot module replacement. localhost:8000"
+      default: {
+        script: "webpack-dev-server --port 8000 --config webpack.dev.config.js --progress --inline --hot",
+        description: "Run app with hot module replacement. localhost:8000"
+      },
+
+      server: "npm start build && npm start"
     },
 
     build: {
