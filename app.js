@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const compression = require("compression");
 
 const indexRoute = require("./dist/indexRoute").default;
 
+app.use(compression());
 app.use(express.static(path.join(__dirname, "dist")));
 
 app.set("view engine", "ejs");
