@@ -32,14 +32,9 @@ const clientConfig = {
       }
     }),
     new HtmlWebpackPlugin({
-      filename: "index.ejs",
+      filename: "files.json",
       template: path.join(__dirname, "views", "index.ejs"),
-      markup: `
-        <div id="app"><%- markup %></div>
-        <script type="text/javascript">
-          window.__INITIAL_SCRAMBLE__ = "<%- initialScramble %>";
-        </script>
-      `
+      inject: false
     }),
     new CleanWebpackPlugin(["dist"]),
 
