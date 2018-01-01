@@ -24,6 +24,11 @@ const clientConfig = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || "dev")
+      }
+    }),
     new HtmlWebpackPlugin({
       filename: "index.ejs",
       template: path.join(__dirname, "views", "index.ejs"),
