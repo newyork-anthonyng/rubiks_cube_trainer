@@ -2,6 +2,8 @@ const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 const clientConfig = {
   context: path.join(__dirname, "src"),
@@ -37,9 +39,14 @@ const clientConfig = {
         <script type="text/javascript">
           window.__INITIAL_SCRAMBLE__ = "<%- initialScramble %>";
         </script>
-      `,
+      `
     }),
-    new CleanWebpackPlugin(["dist"])
+    new CleanWebpackPlugin(["dist"]),
+
+    new BundleAnalyzerPlugin({
+      analyzerMode: "static",
+      openAnalyzer: false
+    })
   ]
 };
 
