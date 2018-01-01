@@ -1,14 +1,7 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Rubiks Cube Trainer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-    <%= htmlWebpackPlugin.options.markup %>
-
-    <script type="text/javascript">
-      console.log("GitHub: https://github.com/newyork-anthonyng/rubiks_cube_trainer");
-    </script>
-  </body>
-</html>
+{
+  "js": [
+    <% htmlWebpackPlugin.files.js.map((js, index) => { %>
+      "<%= js %>" <%= (htmlWebpackPlugin.files.js.length - 1) === index ? "" : "," %>
+    <% }) %>
+  ]
+}
