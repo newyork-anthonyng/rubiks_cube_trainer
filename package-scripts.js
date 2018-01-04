@@ -26,7 +26,12 @@ module.exports = {
 
       cover: "jest --coverage",
 
-      watch: "jest --watch"
+      watch: "jest --watch",
+
+      e2e: {
+        script: "jest test/e2e.spec.js",
+        description: "Use Puppeteer to run E2E tests"
+      }
     },
 
     validate: {
