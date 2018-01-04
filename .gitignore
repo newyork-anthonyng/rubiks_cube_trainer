@@ -1,6 +1,7 @@
 node_modules
 dist
 coverage
+**/__diff_output__
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
