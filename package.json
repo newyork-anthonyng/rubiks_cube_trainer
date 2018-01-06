@@ -31,13 +31,13 @@
     "husky": "^0.14.3",
     "jest": "^21.2.1",
     "jest-image-snapshot": "^2.2.1",
+    "lighthouse": "^2.7.0",
     "lint-staged": "^6.0.0",
     "nps-utils": "^1.5.0",
     "prettier": "^1.8.2",
     "puppeteer": "^0.13.0",
     "uglifyjs-webpack-plugin": "^1.1.5",
-    "webpack-dev-server": "^2.9.5",
-    "webpack-lighthouse-plugin": "^1.0.4"
+    "webpack-dev-server": "^2.9.5"
   },
   "dependencies": {
     "babel-core": "^6.26.0",

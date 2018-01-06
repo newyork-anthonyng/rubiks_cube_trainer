@@ -42,6 +42,8 @@ module.exports = {
       prepush: npsUtils.concurrent.nps("test.cover", "lint")
     },
 
+    lighthouse: "lighthouse https://arcane-forest-45179.herokuapp.com/ --view",
+
     afterSuccess: {
       default: "codecov"
     }
