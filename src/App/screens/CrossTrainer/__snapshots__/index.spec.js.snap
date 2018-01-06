@@ -34,6 +34,11 @@ exports[`should render correctly 1`] = `
       </span>
       <select
         onChange={[Function]}
+        style={
+          Object {
+            "fontSize": 16,
+          }
+        }
         value={1}
       >
         <option
@@ -143,6 +148,11 @@ exports[`should use initial scramble if provided 1`] = `
       </span>
       <select
         onChange={[Function]}
+        style={
+          Object {
+            "fontSize": 16,
+          }
+        }
         value={1}
       >
         <option
