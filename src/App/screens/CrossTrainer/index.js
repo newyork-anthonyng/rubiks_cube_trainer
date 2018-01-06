@@ -59,8 +59,6 @@ class CrossTrainer extends Component {
   };
 
   render() {
-
-
     return (
       <div style={containerStyle}>
         <ScrambleDisplay text={this.state.scramble} />

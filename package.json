@@ -5,7 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "nps",
-    "deploy": "npm start build.prod && npm start"
+    "deploy": "npm start build.prod && npm start",
+    "precommit": "lint-staged",
+    "prepush": "npm start validate.prepush"
+  },
+  "lint-staged": {
+    ".js": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -20,8 +28,11 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.5.1",
+    "husky": "^0.14.3",
     "jest": "^21.2.1",
     "jest-image-snapshot": "^2.2.1",
+    "lint-staged": "^6.0.0",
+    "nps-utils": "^1.5.0",
     "prettier": "^1.8.2",
     "puppeteer": "^0.13.0",
     "uglifyjs-webpack-plugin": "^1.1.5",

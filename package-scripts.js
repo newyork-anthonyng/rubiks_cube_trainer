@@ -1,3 +1,5 @@
+const npsUtils = require("nps-utils");
+
 module.exports = {
   scripts: {
     default: "node app.js",
@@ -35,7 +37,9 @@ module.exports = {
     },
 
     validate: {
-      default: "npm start test.cover && npm start lint && npm start build"
+      default: npsUtils.concurrent.nps("test.cover", "lint", "build"),
+
+      prepush: npsUtils.concurrent.nps("test.cover", "lint")
     },
 
     afterSuccess: {
