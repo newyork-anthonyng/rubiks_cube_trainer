@@ -1,9 +1,5 @@
 node_modules
 dist
 coverage
+npm-debug.log
 **/__diff_output__
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
