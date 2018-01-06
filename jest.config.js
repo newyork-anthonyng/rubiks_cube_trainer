@@ -1,4 +1,5 @@
 module.exports = {
+  testRegex: "/src/.*spec\\.js$",
   setupFiles: [
     "<rootDir>/test/shim.js",
     "<rootDir>/test/setup.js"
