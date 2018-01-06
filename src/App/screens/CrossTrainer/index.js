@@ -6,6 +6,26 @@ import ScrambleHistory from "./components/ScrambleHistory";
 import getRandomSolve from "rubiks-cross-trainer";
 import createEmptyArray from "create-empty-array";
 
+const containerStyle = {
+  display: "flex",
+  flexDirection: "column"
+};
+
+const formStyle = {
+  alignItems: "center",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center"
+};
+
+const selectContainer = {
+  marginBottom: "1rem"
+};
+
+const selectStyle = {
+  fontSize: 16
+};
+
 class CrossTrainer extends Component {
   constructor(props) {
     super(props);
@@ -39,30 +59,17 @@ class CrossTrainer extends Component {
   };
 
   render() {
-    const containerStyle = {
-      display: "flex",
-      flexDirection: "column"
-    };
 
-    const formStyle = {
-      alignItems: "center",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center"
-    };
-
-    const selectStyle = {
-      marginBottom: "1rem"
-    };
 
     return (
       <div style={containerStyle}>
         <ScrambleDisplay text={this.state.scramble} />
 
         <div style={formStyle}>
-          <div style={selectStyle}>
+          <div style={selectContainer}>
             <span>Number of moves to generate cross:</span>
             <select
+              style={selectStyle}
               value={this.state.difficulty}
               onChange={this.handleSelectChange}
             >
