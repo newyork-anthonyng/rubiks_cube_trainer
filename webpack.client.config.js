@@ -5,7 +5,6 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
-const LighthousePlugin = require("webpack-lighthouse-plugin");
 
 const clientConfig = {
   context: path.join(__dirname, "src"),
@@ -43,9 +42,6 @@ const clientConfig = {
     new BundleAnalyzerPlugin({
       analyzerMode: "static",
       openAnalyzer: false
-    }),
-    new LighthousePlugin({
-      url: "https://arcane-forest-45179.herokuapp.com/"
     })
   ]
 };

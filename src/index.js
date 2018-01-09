@@ -1,5 +1,5 @@
 import React from "react";
-import { hydrate } from "react-dom";
+import { render, hydrate } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
@@ -8,7 +8,14 @@ if (window.__INITIAL_SCRAMBLE__) {
   initialScramble = window.__INITIAL_SCRAMBLE__;
 }
 
-hydrate(
+let renderApp = hydrate;
+
+if (module.hot) {
+  // Use react-dom/render to avoid SSR mismatch warnings
+  renderApp = render;
+}
+
+renderApp(
   <BrowserRouter>
     <App initialScramble={initialScramble} />
   </BrowserRouter>,
