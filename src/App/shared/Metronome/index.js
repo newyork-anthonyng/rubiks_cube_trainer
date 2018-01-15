@@ -1,56 +1,6 @@
 import React, { Component } from "react";
 import * as workerTimers from "worker-timers";
-import PropTypes from "prop-types";
-
-let audioContext = null;
-
-class Tone extends Component {
-  constructor(props) {
-    super(props);
-
-    if (typeof AudioContext !== "undefined") {
-      audioContext = new AudioContext();
-    }
-
-    this.oscillator = null;
-    this.frequency = 440;
-  }
-
-  componentDidMount() {
-    if (this.props.play) {
-      this.createOscillator();
-      this.oscillator.start();
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (!prevProps.play && this.props.play) {
-      this.createOscillator();
-      this.oscillator.start();
-      this.oscillator.stop(audioContext.currentTime + this.props.length);
-    }
-  }
-
-  createOscillator() {
-    this.oscillator = audioContext.createOscillator();
-    this.oscillator.connect(audioContext.destination);
-    this.oscillator.frequency.value = this.frequency;
-  }
-
-  render() {
-    return null;
-  }
-}
-
-Tone.propTypes = {
-  play: PropTypes.bool,
-  length: PropTypes.number
-};
-
-Tone.defaultProps = {
-  length: 0.05,
-  play: false
-};
+import Tone from "../Tone";
 
 class Metronome extends Component {
   constructor(props) {
@@ -63,6 +13,10 @@ class Metronome extends Component {
     };
 
     this.iosAudioContextUnlocked = false;
+    this.audioContext = null;
+    if (typeof AudioContext !== "undefined") {
+      this.audioContext = new AudioContext();
+    }
   }
 
   componentWillUnmount() {
@@ -71,8 +25,8 @@ class Metronome extends Component {
 
   handleClick = () => {
     if (!this.iosAudioContextUnlocked) {
-      const buffer = audioContext.createBuffer(1, 1, 22050);
-      const node = audioContext.createBufferSource();
+      const buffer = this.audioContext.createBuffer(1, 1, 22050);
+      const node = this.audioContext.createBufferSource();
       node.buffer = buffer;
       node.start(0);
       this.iosAudioContextUnlocked = true;
@@ -115,21 +69,27 @@ class Metronome extends Component {
   };
 
   render() {
+    const { isActive, bpm, isPlaying, length } = this.state;
+
     return (
       <div>
         <button onClick={this.handleClick}>
-          {this.state.isActive ? "Pause" : "Play"}
+          {isActive ? "Pause" : "Play"}
         </button>
         <input
           type="range"
-          value={this.state.bpm}
+          value={bpm}
           min={45}
           max={160}
           onChange={this.handleBpmChange}
         />
-        <span>BPM: {this.state.bpm}</span>
+        <span>BPM: {bpm}</span>
 
-        <Tone play={this.state.isPlaying} length={this.state.length} />
+        <Tone
+          play={isPlaying}
+          length={length}
+          audioContext={this.audioContext}
+        />
       </div>
     );
   }
