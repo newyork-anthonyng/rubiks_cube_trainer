@@ -39,7 +39,8 @@ module.exports = {
     validate: {
       default: npsUtils.concurrent.nps("test.cover", "lint", "build"),
 
-      prepush: npsUtils.concurrent.nps("test.cover", "lint")
+      // prepush: npsUtils.concurrent.nps("test.cover", "lint")
+      prepush: npsUtils.concurrent.nps("lint")
     },
 
     lighthouse: "lighthouse https://arcane-forest-45179.herokuapp.com/ --view",
