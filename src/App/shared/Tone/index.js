@@ -25,8 +25,6 @@ class Tone extends Component {
       this.createOscillator();
       this.oscillator.start();
       this.oscillator.stop(this.audioContext.currentTime + this.props.length);
-    } else if (prevProps.play && !this.props.play) {
-      this.oscillator.stop();
     }
   }
 
