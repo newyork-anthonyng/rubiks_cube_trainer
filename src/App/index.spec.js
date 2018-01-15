@@ -4,7 +4,7 @@ import toJSON from "enzyme-to-json";
 import { StaticRouter } from "react-router-dom";
 import Home from "./screens/Home";
 import App from "./";
-jest.mock("./shared/Metronome");
+jest.mock("./shared/Metronome", () => "metronome");
 
 it("should render correctly", () => {
   const wrapper = mount(

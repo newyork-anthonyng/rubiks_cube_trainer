@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly when not playing 1`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    Play
+  </button>
+  <label>
+    Update BPM: 
+    60
+    <input
+      max={160}
+      min={45}
+      onChange={[Function]}
+      type="range"
+      value={60}
+    />
+  </label>
+  <Tone
+    length={0.05}
+    play={false}
+  />
+</div>
+`;
+
+exports[`should render correctly when playing 1`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    Pause
+  </button>
+  <label>
+    Update BPM: 
+    60
+    <input
+      max={160}
+      min={45}
+      onChange={[Function]}
+      type="range"
+      value={60}
+    />
+  </label>
+  <Tone
+    audioContext={
+      Object {
+        "createBuffer": [Function],
+        "createBufferSource": [Function],
+      }
+    }
+    length={0.05}
+    play={false}
+  />
+</div>
+`;
+
+exports[`should update BPM when changing input 1`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    Play
+  </button>
+  <label>
+    Update BPM: 
+    42
+    <input
+      max={160}
+      min={45}
+      onChange={[Function]}
+      type="range"
+      value={42}
+    />
+  </label>
+  <Tone
+    audioContext={
+      Object {
+        "createBuffer": [Function],
+        "createBufferSource": [Function],
+      }
+    }
+    length={0.05}
+    play={false}
+  />
+</div>
+`;
+
+exports[`should update workerTimer correctly when clicking on button to play metronome 1`] = `
+Array [
+  [Function],
+  500,
+]
+`;
+
+exports[`should update workerTimer correctly when clicking on button to play metronome 2`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    Pause
+  </button>
+  <label>
+    Update BPM: 
+    60
+    <input
+      max={160}
+      min={45}
+      onChange={[Function]}
+      type="range"
+      value={60}
+    />
+  </label>
+  <Tone
+    audioContext={
+      Object {
+        "createBuffer": [Function],
+        "createBufferSource": [Function],
+      }
+    }
+    length={0.05}
+    play={true}
+  />
+</div>
+`;
+
+exports[`should update workerTimer correctly when clicking on button to play metronome 3`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    Pause
+  </button>
+  <label>
+    Update BPM: 
+    60
+    <input
+      max={160}
+      min={45}
+      onChange={[Function]}
+      type="range"
+      value={60}
+    />
+  </label>
+  <Tone
+    audioContext={
+      Object {
+        "createBuffer": [Function],
+        "createBufferSource": [Function],
+      }
+    }
+    length={0.05}
+    play={false}
+  />
+</div>
+`;
+
+exports[`should update workerTimer if changing BPM while metronome is active 1`] = `
+Array [
+  [Function],
+  714.2857142857143,
+]
+`;

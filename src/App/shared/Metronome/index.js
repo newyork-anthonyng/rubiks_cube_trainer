@@ -13,10 +13,10 @@ class Metronome extends Component {
     };
 
     this.iosAudioContextUnlocked = false;
-    this.audioContext = null;
-    if (typeof AudioContext !== "undefined") {
-      this.audioContext = new AudioContext();
-    }
+  }
+
+  componentDidMount() {
+    this.audioContext = new AudioContext();
   }
 
   componentWillUnmount() {
@@ -24,13 +24,7 @@ class Metronome extends Component {
   }
 
   handleClick = () => {
-    if (!this.iosAudioContextUnlocked) {
-      const buffer = this.audioContext.createBuffer(1, 1, 22050);
-      const node = this.audioContext.createBufferSource();
-      node.buffer = buffer;
-      node.start(0);
-      this.iosAudioContextUnlocked = true;
-    }
+    if (!this.iosAudioContextUnlocked) this.playEmptyBuffer();
 
     this.setState(
       prevState => ({
@@ -38,10 +32,7 @@ class Metronome extends Component {
       }),
       () => {
         if (this.state.isActive) {
-          // start playing the timer
-          this.interval = workerTimers.setInterval(() => {
-            this.setState(prevState => ({ isPlaying: !prevState.isPlaying }));
-          }, this.calculateTimeInterval());
+          this.startTimer();
         } else {
           // stop playing the timer
           workerTimers.clearInterval(this.interval);
@@ -49,6 +40,20 @@ class Metronome extends Component {
         }
       }
     );
+  };
+
+  playEmptyBuffer = () => {
+    const buffer = this.audioContext.createBuffer(1, 1, 22050);
+    const node = this.audioContext.createBufferSource();
+    node.buffer = buffer;
+    node.start(0);
+    this.iosAudioContextUnlocked = true;
+  };
+
+  startTimer = () => {
+    this.interval = workerTimers.setInterval(() => {
+      this.setState(prevState => ({ isPlaying: !prevState.isPlaying }));
+    }, this.calculateTimeInterval());
   };
 
   calculateTimeInterval = () => {
@@ -61,9 +66,7 @@ class Metronome extends Component {
     this.setState({ bpm: e.target.value }, () => {
       if (this.state.isActive) {
         workerTimers.clearInterval(this.interval);
-        this.interval = workerTimers.setInterval(() => {
-          this.setState(prevState => ({ isPlaying: !prevState.isPlaying }));
-        }, this.calculateTimeInterval());
+        this.startTimer();
       }
     });
   };
@@ -76,14 +79,16 @@ class Metronome extends Component {
         <button onClick={this.handleClick}>
           {isActive ? "Pause" : "Play"}
         </button>
-        <input
-          type="range"
-          value={bpm}
-          min={45}
-          max={160}
-          onChange={this.handleBpmChange}
-        />
-        <span>BPM: {bpm}</span>
+        <label>
+          Update BPM: {bpm}
+          <input
+            type="range"
+            value={bpm}
+            min={45}
+            max={160}
+            onChange={this.handleBpmChange}
+          />
+        </label>
 
         <Tone
           play={isPlaying}
