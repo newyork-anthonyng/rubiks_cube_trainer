@@ -4,6 +4,7 @@ import { Route, Link } from "react-router-dom";
 import Home from "./screens/Home";
 import CrossTrainer from "./screens/CrossTrainer";
 import Scramble from "./screens/Scramble";
+import Metronome from "./shared/Metronome";
 
 const App = ({ initialScramble }) => (
   <div>
@@ -20,6 +21,10 @@ const App = ({ initialScramble }) => (
         </li>
       </ul>
     </nav>
+
+    <hr />
+
+    <Metronome />
 
     <hr />
 

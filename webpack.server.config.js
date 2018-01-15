@@ -26,7 +26,16 @@ const serverConfig = {
   target: "node",
 
   externals: [
-    nodeExternals()
+    nodeExternals({
+      whitelist: ["worker-timers"]
+    })
+  ],
+
+  plugins: [
+    new webpack.NormalModuleReplacementPlugin(
+      /worker-timers/,
+      "./mock-worker-timers.js"
+    )
   ]
 };
 
