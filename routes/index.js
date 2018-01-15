@@ -31,7 +31,6 @@ function writeHeader(res) {
 
 function createBodyContent({ initialScramble }) {
   return `</div>
-        <script type="text/javascript" src="https://cwilso.github.io/AudioContext-MonkeyPatch/AudioContextMonkeyPatch.js"></script>
         <script type="text/javascript">
           window.__INITIAL_SCRAMBLE__ = "${initialScramble}";
         </script>
