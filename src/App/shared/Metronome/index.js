@@ -1,6 +1,56 @@
 import React, { Component } from "react";
 import * as workerTimers from "worker-timers";
-import Tone from "../Tone";
+import PropTypes from "prop-types";
+
+let audioContext = null;
+
+class Tone extends Component {
+  constructor(props) {
+    super(props);
+
+    if (typeof AudioContext !== "undefined") {
+      audioContext = new AudioContext();
+    }
+
+    this.oscillator = null;
+    this.frequency = 440;
+  }
+
+  componentDidMount() {
+    if (this.props.play) {
+      this.createOscillator();
+      this.oscillator.start();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!prevProps.play && this.props.play) {
+      this.createOscillator();
+      this.oscillator.start();
+      this.oscillator.stop(audioContext.currentTime + this.props.length);
+    }
+  }
+
+  createOscillator() {
+    this.oscillator = audioContext.createOscillator();
+    this.oscillator.connect(audioContext.destination);
+    this.oscillator.frequency.value = this.frequency;
+  }
+
+  render() {
+    return null;
+  }
+}
+
+Tone.propTypes = {
+  play: PropTypes.bool,
+  length: PropTypes.number
+};
+
+Tone.defaultProps = {
+  length: 0.05,
+  play: false
+};
 
 class Metronome extends Component {
   constructor(props) {
@@ -11,6 +61,8 @@ class Metronome extends Component {
       isActive: false,
       bpm: 60
     };
+
+    this.iosAudioContextUnlocked = false;
   }
 
   componentWillUnmount() {
@@ -18,6 +70,14 @@ class Metronome extends Component {
   }
 
   handleClick = () => {
+    if (!this.iosAudioContextUnlocked) {
+      const buffer = audioContext.createBuffer(1, 1, 22050);
+      const node = audioContext.createBufferSource();
+      node.buffer = buffer;
+      node.start(0);
+      this.iosAudioContextUnlocked = true;
+    }
+
     this.setState(
       prevState => ({
         isActive: !prevState.isActive
@@ -38,7 +98,9 @@ class Metronome extends Component {
   };
 
   calculateTimeInterval = () => {
-    return 60 / this.state.bpm * 1000;
+    const time = 60 / this.state.bpm * 1000;
+    // divide by 2 so that Tone is set to play at the beginning of each interval
+    return time / 2;
   };
 
   handleBpmChange = e => {
