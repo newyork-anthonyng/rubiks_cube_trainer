@@ -72,6 +72,8 @@ exports[`should render correctly 1`] = `
           </ul>
         </nav>
         <hr />
+        <metronome />
+        <hr />
         <Route
           component={[Function]}
           exact={true}

@@ -6,28 +6,29 @@ class Tone extends Component {
     this.oscillator = null;
     this.frequency = 440;
 
-    if (this.props.play) {
-      this.createOscillator();
-      this.oscillator.start();
-    }
+    if (this.props.play) this.playSound();
   }
 
   componentDidUpdate(prevProps) {
     if (!prevProps.play && this.props.play) {
-      this.createOscillator();
-      this.oscillator.start();
-      this.oscillator.stop(
-        this.props.audioContext.currentTime + this.props.length
-      );
+      this.playSound();
     }
   }
 
-  createOscillator() {
+  playSound = () => {
+    this.createOscillator();
+    this.oscillator.start();
+    this.oscillator.stop(
+      this.props.audioContext.currentTime + this.props.length
+    );
+  };
+
+  createOscillator = () => {
     const { audioContext } = this.props;
     this.oscillator = audioContext.createOscillator();
     this.oscillator.connect(audioContext.destination);
     this.oscillator.frequency.value = this.frequency;
-  }
+  };
 
   render() {
     return null;
