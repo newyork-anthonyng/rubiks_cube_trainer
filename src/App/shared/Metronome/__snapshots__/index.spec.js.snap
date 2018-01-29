@@ -19,7 +19,15 @@ exports[`should render correctly when not playing 1`] = `
     />
   </label>
   <Tone
+    audioContext={
+      Object {
+        "createBuffer": [Function],
+        "createBufferSource": [Function],
+      }
+    }
+    frequency={400}
     length={0.05}
+    onStop={[Function]}
     play={false}
   />
 </div>
@@ -50,7 +58,9 @@ exports[`should render correctly when playing 1`] = `
         "createBufferSource": [Function],
       }
     }
+    frequency={400}
     length={0.05}
+    onStop={[Function]}
     play={false}
   />
 </div>
@@ -81,7 +91,9 @@ exports[`should update BPM when changing input 1`] = `
         "createBufferSource": [Function],
       }
     }
+    frequency={400}
     length={0.05}
+    onStop={[Function]}
     play={false}
   />
 </div>
@@ -119,7 +131,9 @@ exports[`should update workerTimer correctly when clicking on button to play met
         "createBufferSource": [Function],
       }
     }
+    frequency={400}
     length={0.05}
+    onStop={[Function]}
     play={true}
   />
 </div>
@@ -150,7 +164,9 @@ exports[`should update workerTimer correctly when clicking on button to play met
         "createBufferSource": [Function],
       }
     }
+    frequency={400}
     length={0.05}
+    onStop={[Function]}
     play={false}
   />
 </div>

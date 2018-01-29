@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as workerTimers from "worker-timers";
-import Tone from "../Tone";
+import Tone from "react-tone";
 
 class Metronome extends Component {
   constructor(props) {
