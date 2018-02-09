@@ -2,22 +2,52 @@
 
 exports[`should render correctly when not playing 1`] = `
 <div>
+  Metronome
   <button
     onClick={[Function]}
   >
     Play
   </button>
-  <label>
-    Update BPM: 
-    60
-    <input
-      max={160}
-      min={45}
-      onChange={[Function]}
-      type="range"
-      value={60}
-    />
-  </label>
+  <div>
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 16,
+          "marginTop": 16,
+        }
+      }
+    >
+      Update BPM: 
+      60
+      <input
+        max={160}
+        min={45}
+        onChange={[Function]}
+        type="range"
+        value={60}
+      />
+    </label>
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 16,
+          "marginTop": 16,
+        }
+      }
+    >
+      Update Volume
+      <input
+        max={1}
+        min={0}
+        onChange={[Function]}
+        step={0.1}
+        type="range"
+        value={1}
+      />
+    </label>
+  </div>
   <Tone
     audioContext={
       Object {
@@ -29,28 +59,59 @@ exports[`should render correctly when not playing 1`] = `
     length={0.05}
     onStop={[Function]}
     play={false}
+    volume={1}
   />
 </div>
 `;
 
 exports[`should render correctly when playing 1`] = `
 <div>
+  Metronome
   <button
     onClick={[Function]}
   >
     Pause
   </button>
-  <label>
-    Update BPM: 
-    60
-    <input
-      max={160}
-      min={45}
-      onChange={[Function]}
-      type="range"
-      value={60}
-    />
-  </label>
+  <div>
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 16,
+          "marginTop": 16,
+        }
+      }
+    >
+      Update BPM: 
+      60
+      <input
+        max={160}
+        min={45}
+        onChange={[Function]}
+        type="range"
+        value={60}
+      />
+    </label>
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 16,
+          "marginTop": 16,
+        }
+      }
+    >
+      Update Volume
+      <input
+        max={1}
+        min={0}
+        onChange={[Function]}
+        step={0.1}
+        type="range"
+        value={1}
+      />
+    </label>
+  </div>
   <Tone
     audioContext={
       Object {
@@ -62,28 +123,59 @@ exports[`should render correctly when playing 1`] = `
     length={0.05}
     onStop={[Function]}
     play={false}
+    volume={1}
   />
 </div>
 `;
 
 exports[`should update BPM when changing input 1`] = `
 <div>
+  Metronome
   <button
     onClick={[Function]}
   >
     Play
   </button>
-  <label>
-    Update BPM: 
-    42
-    <input
-      max={160}
-      min={45}
-      onChange={[Function]}
-      type="range"
-      value={42}
-    />
-  </label>
+  <div>
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 16,
+          "marginTop": 16,
+        }
+      }
+    >
+      Update BPM: 
+      42
+      <input
+        max={160}
+        min={45}
+        onChange={[Function]}
+        type="range"
+        value={42}
+      />
+    </label>
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 16,
+          "marginTop": 16,
+        }
+      }
+    >
+      Update Volume
+      <input
+        max={1}
+        min={0}
+        onChange={[Function]}
+        step={0.1}
+        type="range"
+        value={1}
+      />
+    </label>
+  </div>
   <Tone
     audioContext={
       Object {
@@ -95,6 +187,71 @@ exports[`should update BPM when changing input 1`] = `
     length={0.05}
     onStop={[Function]}
     play={false}
+    volume={1}
+  />
+</div>
+`;
+
+exports[`should update volume when changing input 1`] = `
+<div>
+  Metronome
+  <button
+    onClick={[Function]}
+  >
+    Play
+  </button>
+  <div>
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 16,
+          "marginTop": 16,
+        }
+      }
+    >
+      Update BPM: 
+      60
+      <input
+        max={160}
+        min={45}
+        onChange={[Function]}
+        type="range"
+        value={60}
+      />
+    </label>
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 16,
+          "marginTop": 16,
+        }
+      }
+    >
+      Update Volume
+      <input
+        max={1}
+        min={0}
+        onChange={[Function]}
+        step={0.1}
+        type="range"
+        value={42}
+      />
+    </label>
+  </div>
+  <Tone
+    audioContext={
+      Object {
+        "createBuffer": [Function],
+        "createBufferSource": [Function],
+      }
+    }
+    frequency={400}
+    length={0.05}
+    onStop={[Function]}
+    play={false}
+    volume={42}
   />
 </div>
 `;
@@ -108,22 +265,52 @@ Array [
 
 exports[`should update workerTimer correctly when clicking on button to play metronome 2`] = `
 <div>
+  Metronome
   <button
     onClick={[Function]}
   >
     Pause
   </button>
-  <label>
-    Update BPM: 
-    60
-    <input
-      max={160}
-      min={45}
-      onChange={[Function]}
-      type="range"
-      value={60}
-    />
-  </label>
+  <div>
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 16,
+          "marginTop": 16,
+        }
+      }
+    >
+      Update BPM: 
+      60
+      <input
+        max={160}
+        min={45}
+        onChange={[Function]}
+        type="range"
+        value={60}
+      />
+    </label>
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 16,
+          "marginTop": 16,
+        }
+      }
+    >
+      Update Volume
+      <input
+        max={1}
+        min={0}
+        onChange={[Function]}
+        step={0.1}
+        type="range"
+        value={1}
+      />
+    </label>
+  </div>
   <Tone
     audioContext={
       Object {
@@ -135,28 +322,59 @@ exports[`should update workerTimer correctly when clicking on button to play met
     length={0.05}
     onStop={[Function]}
     play={true}
+    volume={1}
   />
 </div>
 `;
 
 exports[`should update workerTimer correctly when clicking on button to play metronome 3`] = `
 <div>
+  Metronome
   <button
     onClick={[Function]}
   >
     Pause
   </button>
-  <label>
-    Update BPM: 
-    60
-    <input
-      max={160}
-      min={45}
-      onChange={[Function]}
-      type="range"
-      value={60}
-    />
-  </label>
+  <div>
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 16,
+          "marginTop": 16,
+        }
+      }
+    >
+      Update BPM: 
+      60
+      <input
+        max={160}
+        min={45}
+        onChange={[Function]}
+        type="range"
+        value={60}
+      />
+    </label>
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 16,
+          "marginTop": 16,
+        }
+      }
+    >
+      Update Volume
+      <input
+        max={1}
+        min={0}
+        onChange={[Function]}
+        step={0.1}
+        type="range"
+        value={1}
+      />
+    </label>
+  </div>
   <Tone
     audioContext={
       Object {
@@ -168,6 +386,7 @@ exports[`should update workerTimer correctly when clicking on button to play met
     length={0.05}
     onStop={[Function]}
     play={false}
+    volume={1}
   />
 </div>
 `;
