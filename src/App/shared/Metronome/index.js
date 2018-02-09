@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import * as workerTimers from "worker-timers";
 import Tone from "react-tone";
 
+const labelStyle = {
+  display: "block",
+  marginBottom: 16,
+  marginTop: 16
+};
+
 class Metronome extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +15,8 @@ class Metronome extends Component {
     this.state = {
       isPlaying: false,
       isActive: false,
-      bpm: 60
+      bpm: 60,
+      volume: 1
     };
 
     this.iosAudioContextUnlocked = false;
@@ -71,28 +78,47 @@ class Metronome extends Component {
     });
   };
 
+  handleVolumeChange = e => {
+    this.setState({
+      volume: e.target.value
+    });
+  };
+
   render() {
-    const { isActive, bpm, isPlaying, length } = this.state;
+    const { isActive, bpm, isPlaying, volume } = this.state;
 
     return (
       <div>
+        Metronome
         <button onClick={this.handleClick}>
           {isActive ? "Pause" : "Play"}
         </button>
-        <label>
-          Update BPM: {bpm}
-          <input
-            type="range"
-            value={bpm}
-            min={45}
-            max={160}
-            onChange={this.handleBpmChange}
-          />
-        </label>
-
+        <div>
+          <label style={labelStyle}>
+            Update BPM: {bpm}
+            <input
+              type="range"
+              value={bpm}
+              min={45}
+              max={160}
+              onChange={this.handleBpmChange}
+            />
+          </label>
+          <label style={labelStyle}>
+            Update Volume
+            <input
+              type="range"
+              value={volume}
+              min={0}
+              max={1}
+              step={0.1}
+              onChange={this.handleVolumeChange}
+            />
+          </label>
+        </div>
         <Tone
           play={isPlaying}
-          length={length}
+          volume={volume}
           audioContext={this.audioContext}
         />
       </div>

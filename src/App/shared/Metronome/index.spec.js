@@ -4,6 +4,7 @@ jest.mock("worker-timers", () => {
     setInterval: jest.fn()
   };
 });
+jest.mock("react-tone");
 import * as workerTimers from "worker-timers";
 import React from "react";
 import { shallow, mount } from "enzyme";
@@ -38,8 +39,19 @@ it("should render correctly when playing", () => {
 it("should update BPM when changing input", () => {
   const wrapper = shallow(<Metronome />);
 
-  const rangeInputEl = wrapper.find("input[type='range']");
-  rangeInputEl.simulate("change", {
+  const bpmRangeEl = wrapper.find("input[type='range']").at(0);
+  bpmRangeEl.simulate("change", {
+    target: { value: 42 }
+  });
+
+  expect(toJSON(wrapper)).toMatchSnapshot();
+});
+
+it("should update volume when changing input", () => {
+  const wrapper = shallow(<Metronome />);
+
+  const volumeRangeEl = wrapper.find("input[type='range']").at(1);
+  volumeRangeEl.simulate("change", {
     target: { value: 42 }
   });
 
@@ -55,8 +67,8 @@ it("should update workerTimer if changing BPM while metronome is active", () => 
   workerTimers.clearInterval.mockClear();
   workerTimers.setInterval.mockClear();
 
-  const rangeInputEl = wrapper.find("input[type='range']");
-  rangeInputEl.simulate("change", {
+  const bpmRangeEl = wrapper.find("input[type='range']").at(0);
+  bpmRangeEl.simulate("change", {
     target: { value: 42 }
   });
 
