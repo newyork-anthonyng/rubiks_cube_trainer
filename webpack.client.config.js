@@ -5,6 +5,8 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
+const ReactLoadablePlugin = require("react-loadable/webpack")
+  .ReactLoadablePlugin;
 
 const clientConfig = {
   context: path.join(__dirname, "src"),
@@ -27,6 +29,13 @@ const clientConfig = {
   },
 
   plugins: [
+    new ReactLoadablePlugin({
+      filename: "./dist/react-loadable.json"
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "manifest",
+      minChunks: Infinity
+    }),
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || "dev")

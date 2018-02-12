@@ -2,9 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Route, Link } from "react-router-dom";
 import Home from "./screens/Home";
-import CrossTrainer from "./screens/CrossTrainer";
-import Scramble from "./screens/Scramble";
 import Metronome from "./shared/Metronome";
+import {
+  LoadableScramble,
+  LoadableCrossTrainer
+} from "./screens/LoadableScreens";
 
 const App = ({ initialScramble }) => (
   <div>
@@ -33,7 +35,7 @@ const App = ({ initialScramble }) => (
       path="/cross-trainer"
       render={
         /* istanbul ignore next */ () => (
-          <CrossTrainer initialScramble={initialScramble} />
+          <LoadableCrossTrainer initialScramble={initialScramble} />
         )
       }
     />
@@ -41,7 +43,7 @@ const App = ({ initialScramble }) => (
       path="/scramble"
       render={
         /* istanbul ignore next */ () => (
-          <Scramble initialScramble={initialScramble} />
+          <LoadableScramble initialScramble={initialScramble} />
         )
       }
     />

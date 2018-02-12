@@ -5,6 +5,10 @@ import { StaticRouter } from "react-router-dom";
 import Home from "./screens/Home";
 import App from "./";
 jest.mock("./shared/Metronome", () => "metronome");
+jest.mock("./screens/LoadableScreens", () => ({
+  LoadableScramble: "loadableScramble",
+  LoadableCrossTrainer: "loadableCrossTrainer"
+}));
 
 it("should render correctly", () => {
   const wrapper = mount(

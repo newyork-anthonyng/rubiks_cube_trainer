@@ -3,6 +3,7 @@ import React from "react";
 import { render, hydrate } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import Loadable from "react-loadable";
 
 let initialScramble;
 if (window.__INITIAL_SCRAMBLE__) {
@@ -16,9 +17,11 @@ if (module.hot) {
   renderApp = render;
 }
 
-renderApp(
-  <BrowserRouter>
-    <App initialScramble={initialScramble} />
-  </BrowserRouter>,
-  document.getElementById("app")
-);
+Loadable.preloadReady().then(() => {
+  renderApp(
+    <BrowserRouter>
+      <App initialScramble={initialScramble} />
+    </BrowserRouter>,
+    document.getElementById("app")
+  );
+});
