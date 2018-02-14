@@ -1,7 +1,12 @@
 module.exports = {
   testRegex: "/src/.*spec\\.js$",
   setupFiles: ["<rootDir>/test/shim.js", "<rootDir>/test/setup.js"],
-  collectCoverageFrom: ["src/**/*.js", "!src/index.js", "!**/*mock*.js"],
+  collectCoverageFrom: [
+    "src/**/*.js",
+    "!src/index.js",
+    "!**/*mock*.js",
+    "!**/LoadableScreens/*.js"
+  ],
 
   coverageThreshold: {
     global: {

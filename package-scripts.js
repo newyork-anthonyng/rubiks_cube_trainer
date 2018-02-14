@@ -15,9 +15,19 @@ module.exports = {
     },
 
     build: {
-      default: "BABEL_ENV=production webpack",
+      // default: "BABEL_ENV=production webpack",
+      // We need to build client first so react-loadable.json is available to the server
 
-      prod: "NODE_ENV=production BABEL_ENV=production webpack"
+      default: npsUtils.series(
+        "BABEL_ENV=production webpack --config webpack.client.config.js",
+        "BABEL_ENV=production webpack --config webpack.server.config.js"
+      ),
+
+      // prod: "NODE_ENV=production BABEL_ENV=production webpack"
+      prod: npsUtils.series(
+        "NODE_ENV=production webpack --config webpack.client.config.js",
+        "NODE_ENV=production webpack --config webpack.server.config.js"
+      )
     },
 
     lint: "eslint src/",
